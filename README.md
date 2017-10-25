@@ -1,18 +1,17 @@
 # 使用 Portal 驗證完畢後，轉址回原 web server 網址繼續執行 (asp.net mvc5)
-1. 在 web.config appSettings 區段加入 "isPortal" 以決定系統要採用那種驗證方式，目前設定有以下三種：
-   
-   - yes - 使用 portal 驗證，驗證完畢後於 portal 繼續執行
-   - no - 使用 portal 僅驗證，驗證完畢後跳離 portal 執行
-   - none - 自行驗證
+1. 在 web.config appSettings 區段加入 "isPortal" 以決定系統要採用那種驗證方式，目前設定有以下三種：  
+   - yes: 使用 portal 驗證，驗證完畢後於 portal 繼續執行  
+   - no: 使用 portal 僅驗證，驗證完畢後跳離 portal 執行  
+   - none: 自行驗證
    
 2. 在 account/login 使用抽象類別 AuthInfo 以及工廠類別 AuthInfoFactory 搭配 "isPortal" 決定使用哪一種驗證：
-  - yes - PortalAuthInfo
-  - no - noPortalAuthInfo
-  - none - FormsAuthInfo
+  - yes: PortalAuthInfo  
+  - no: noPortalAuthInfo  
+  - none: FormsAuthInfo
 
 本例說明使用 noPrortalAuthInfo
 1.  將 portal 登入頁面以 iframe 方式嵌入,	syntax: 
-    <iframe id="SsoIframe" src="http://sso.tku.edu.tw/aisinfo/bd/account/sso?&embed=YES")" frameborder="0" scrolling="no" style="width:450px; height:250px;"></iframe>
+    <iframe id="SsoIframe" src="http://sso.tku.edu.tw/aisinfo/bd/account/sso?&embed=YES" frameborder="0" scrolling="no" style="width:450px; height:250px;"></iframe>
 	
   	其中 src 為當驗證成功後，sso 會重導向的網址，此處是重導向至 "account/sso"
 
