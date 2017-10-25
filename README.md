@@ -1,6 +1,7 @@
 # 使用 Portal 驗證完畢後，轉址回原 web server 網址繼續執行 (asp.net mvc5)
 1. 在 web.config appSettings 區段加入 "isPortal" 以決定系統要採用那種驗證方式，目前設定有以下三種：
-   - yes - 使用 portal 驗證，驗證完畢後於 portal 繼續執行
+   
+   - yes - 使用 portal 驗證，驗證完畢後於 portal 繼續執行
    - no - 使用 portal 僅驗證，驗證完畢後跳離 portal 執行
    - none - 自行驗證
    
